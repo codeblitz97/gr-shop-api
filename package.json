@@ -1,0 +1,20 @@
+{
+  "name": "gr-shop-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tantrik Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "bunyan": "^1.8.15",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.4",
+    "express": "^4.18.2",
+    "gerena-scraping": "https://github.com/codeblitz97/gerena-scraping",
+    "sharp": "^0.33.2"
+  }
+}
