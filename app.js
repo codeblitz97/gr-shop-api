@@ -28,42 +28,26 @@ app.post('/purchase', async (req, res) => {
       });
     }
 
-    await Parser.purchase(playerId, Number(amount), 'voucher', serial, pin);
+    const image = await Parser.purchase(
+      playerId,
+      Number(amount),
+      'voucher',
+      serial,
+      pin,
+      'shell'
+    );
 
     await waitFor(5000);
-    const filePath = './success.png';
-    if (fs.existsSync(filePath)) {
-      const { base64, binary, hash } = await Parser.successScreenshot(
-        './success.png'
-      );
 
-      const endTime = performance.now();
-      const totalTimeTaken = endTime - startTime;
-      res.status(200).json({
-        message: 'Success',
-        playerId,
-        amount,
-        totalTimeTaken: totalTimeTaken.toFixed(2),
-        images: [
-          {
-            type: 'hash',
-            string: hash,
-          },
-          {
-            type: 'base64',
-            string: base64,
-          },
-          {
-            type: 'binary',
-            content: binary,
-          },
-        ],
-      });
-    } else {
-      res.status(404).json({
-        message: 'File not found: success.png',
-      });
-    }
+    const endTime = performance.now();
+    const totalTimeTaken = endTime - startTime;
+    res.status(200).json({
+      message: 'Success',
+      playerId,
+      amount,
+      totalTimeTaken: totalTimeTaken.toFixed(2),
+      image,
+    });
   } catch (error) {
     console.error('Error', error);
 

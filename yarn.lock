@@ -700,7 +700,7 @@ function-bind@^1.1.2:
 
 "gerena-scraping@https://github.com/codeblitz97/gerena-scraping":
   version "1.0.0"
-  resolved "https://github.com/codeblitz97/gerena-scraping#a72753709ac606ff52a523711a6dba4ec5248684"
+  resolved "https://github.com/codeblitz97/gerena-scraping#bc7b600385000fc80714e2d8601484a95c13713d"
   dependencies:
     puppeteer "^22.0.0"
     sharp "^0.33.2"
